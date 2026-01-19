@@ -1,44 +1,20 @@
-# Dependencies
+# Node
 node_modules/
-/.pnp
-.pnp.js
+node_modules_old/
 
-# Testing
-/coverage
-
-# Next.js
-/.next/
-/out/
-
-# Production
-/build
-
-# Misc
-.DS_Store
-*.pem
-
-# Debug
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Local env files
-.env*.local
+# Environment files
 .env
 
-# Vercel
-.vercel
+# Build folders
+.next/
+dist/
+build/
 
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
-
-# Netlify
-.netlify/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# OS files
+.DS_Store
+Thumbs.db
