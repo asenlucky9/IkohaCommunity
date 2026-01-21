@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { MapPin } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -80,6 +81,39 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* Location map */}
+        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/20">
+          <h4 className="text-white font-semibold text-sm mb-3">Location</h4>
+          <div className="overflow-hidden rounded-lg border border-white/20 shadow-inner">
+            <div className="relative w-full h-36 sm:h-40">
+              <iframe
+                src="https://www.google.com/maps?q=6.636944,5.203889&z=15&output=embed"
+                title="Ikoha, Ovia South-West, Edo, Nigeria – Map"
+                className="absolute inset-0 w-full h-full"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div className="px-3 py-2 bg-white/5 flex flex-wrap items-center justify-between gap-2">
+              <p className="text-xs text-white/80">
+                <span className="font-semibold text-white">Ikoha</span>
+                {' · '}
+                Ovia South-West, Edo, Nigeria
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=6.636944,5.203889"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs font-medium text-secondary hover:text-secondary-light transition-colors focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-dark rounded"
+              >
+                <MapPin className="w-4 h-4" aria-hidden />
+                Open in Google Maps
+              </a>
+            </div>
           </div>
         </div>
 
