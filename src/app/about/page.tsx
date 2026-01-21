@@ -7,13 +7,13 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 import AOS from 'aos'
-import 'aos/dist/aos.css'
 
 export default function AboutPage() {
   const [imageErrors, setImageErrors] = useState({
     governor: false,
     chairman: false,
     councilor: false,
+    oba: false,
   })
 
   useEffect(() => {
@@ -226,8 +226,8 @@ export default function AboutPage() {
                       <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center overflow-hidden border-4 border-white shadow-lg ring-4 ring-primary/20">
                         {!imageErrors.chairman ? (
                           <Image
-                            src="/images/government/chairman-nosa-edobor.jpg"
-                            alt="Nosa Edobor - Chairman"
+                            src="/images/logo/chirman.jpeg"
+                            alt="Nosa Edobor - Chairman, Ovia South-West LGA"
                             width={128}
                             height={128}
                             className="object-cover w-full h-full"
@@ -327,10 +327,34 @@ export default function AboutPage() {
                   <h3 className="text-2xl font-bold text-primary">Traditional Authority</h3>
                 </div>
                 <div className="bg-white rounded-xl p-5 shadow-md">
-                  <h4 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                    <Award className="w-5 h-5 mr-2 text-primary" />
-                    Oba of Benin
-                  </h4>
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center overflow-hidden border-4 border-white shadow-lg ring-2 ring-primary/20">
+                        {!imageErrors.oba ? (
+                          <Image
+                            src="/images/logo/obaofbenin.jpg"
+                            alt="Oba of Benin - Supreme custodian of tradition"
+                            width={112}
+                            height={112}
+                            className="object-cover w-full h-full"
+                            unoptimized
+                            onError={() => setImageErrors(prev => ({ ...prev, oba: true }))}
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-white">
+                            <UserCircle className="w-10 h-10" />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex-1 text-center sm:text-left">
+                      <h4 className="text-xl font-bold text-gray-900 flex items-center justify-center sm:justify-start">
+                        <Award className="w-5 h-5 mr-2 text-primary flex-shrink-0" />
+                        Oba of Benin
+                      </h4>
+                      <p className="text-gray-600 text-sm mt-1">Traditional authority over Ikoha Community</p>
+                    </div>
+                  </div>
                   <ul className="space-y-3 text-gray-700">
                     <li className="flex items-start">
                       <span className="text-primary mr-3 mt-1">•</span>

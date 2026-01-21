@@ -26,20 +26,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
-            <div className="mb-4">
+            <div className="mb-5 inline-flex items-center justify-center rounded-2xl bg-white/15 p-4 shadow-lg ring-1 ring-white/25">
               <img
                 src="/images/logo/logoikoha.png"
                 alt="Ikoha Community Logo"
-                className="h-16 w-16 object-contain mb-3"
+                className="h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 object-contain"
               />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Ikoha Community</h3>
-            <p className="text-sm mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">Ikoha Community</h3>
+            <p className="text-xs uppercase tracking-widest text-secondary font-medium mb-3">Agricultural & Mineral Resources</p>
+            <p className="text-sm text-gray-400">
               Ovia South-West, Edo State<br />
               South South Nigeria
-            </p>
-            <p className="text-xs text-gray-500">
-              Agricultural & Mineral Resources
             </p>
           </div>
 

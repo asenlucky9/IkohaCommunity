@@ -2,12 +2,25 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import {
+  Menu,
+  X,
+  Home,
+  Info,
+  Gem,
+  Construction,
+  Store,
+  Newspaper,
+  CalendarDays,
+  Mail,
+} from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,14 +31,14 @@ export default function Header() {
   }, [])
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Mineral Resources', href: '/minerals' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Businesses', href: '/businesses' },
-    { name: 'News', href: '/news' },
-    { name: 'Events', href: '/events' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Home', href: '/', icon: Home },
+    { name: 'About', href: '/about', icon: Info },
+    { name: 'Minerals', href: '/minerals', icon: Gem },
+    { name: 'Projects', href: '/projects', icon: Construction },
+    { name: 'Businesses', href: '/businesses', icon: Store },
+    { name: 'News', href: '/news', icon: Newspaper },
+    { name: 'Events', href: '/events', icon: CalendarDays },
+    { name: 'Contact', href: '/contact', icon: Mail },
   ]
 
   return (
@@ -38,66 +51,80 @@ export default function Header() {
       transition={{ duration: 0.5 }}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+        <div className="flex justify-between items-center h-24 lg:h-28">
+          {/* Logo - large, professional brand block */}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.99 }}
+            className="flex-shrink-0"
           >
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="relative h-12 w-12 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-5">
+              <div className="relative h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 flex-shrink-0 rounded-2xl bg-gradient-to-br from-gray-50 to-white flex items-center justify-center shadow-md ring-1 ring-gray-200/80 overflow-hidden">
                 <img
                   src="/images/logo/logoikoha.png"
                   alt="Ikoha Community Logo"
                   className="h-full w-full object-contain"
                 />
               </div>
-              <div className="hidden sm:block">
-                <div className="text-xl font-bold text-primary">
+              <div className="hidden sm:block min-w-0 border-l border-gray-200 pl-5">
+                <div className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-primary leading-tight tracking-tight">
                   Ikoha Community
                 </div>
-                <div className="text-xs text-gray-600">
+                <div className="text-[11px] sm:text-xs text-gray-500 mt-1 font-medium uppercase tracking-widest">
                   Agricultural & Mineral Resources
                 </div>
               </div>
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          {/* Desktop Navigation - compact so all fit on one line */}
+          <div className="hidden lg:flex lg:flex-wrap lg:items-center lg:justify-end lg:gap-x-2 lg:gap-y-1">
             {navigation.map((item, index) => (
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="shrink-0"
               >
+                {(() => {
+                  const Icon = item.icon
+                  const active = pathname === item.href
+                  return (
                 <Link
                   href={item.href}
-                  className="text-gray-700 hover:text-primary font-medium transition-colors position-relative"
+                  className={[
+                    'group inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-colors whitespace-nowrap',
+                    active
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-gray-700 hover:bg-gray-50 hover:text-primary',
+                  ].join(' ')}
                 >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 hover:w-full"></span>
+                  <Icon className="h-4 w-4 shrink-0 opacity-80 group-hover:opacity-100" />
+                  <span>{item.name}</span>
                 </Link>
+                  )
+                })()}
               </motion.div>
             ))}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 0.8 }}
+              className="shrink-0"
             >
               <Link
                 href="/contact"
-                className="btn btn-primary ms-4"
+                className="inline-flex items-center justify-center rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-primary-dark whitespace-nowrap"
               >
-                Contact Us
+                Contact
               </Link>
             </motion.div>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile / tablet menu button (when desktop nav is hidden) */}
           <motion.button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-primary"
+            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             whileTap={{ scale: 0.9 }}
@@ -106,11 +133,11 @@ export default function Header() {
           </motion.button>
         </div>
 
-        {/* Mobile Navigation - Animated */}
+        {/* Mobile / tablet Navigation - Animated (hidden on lg when desktop nav shows) */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="md:hidden py-4 border-t"
+              className="lg:hidden py-4 border-t"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -124,13 +151,25 @@ export default function Header() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                   >
+                    {(() => {
+                      const Icon = item.icon
+                      const active = pathname === item.href
+                      return (
                     <Link
                       href={item.href}
-                      className="text-gray-700 hover:text-primary font-medium py-2 block"
+                      className={[
+                        'flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
+                        active
+                          ? 'bg-primary/10 text-primary'
+                          : 'text-gray-700 hover:bg-gray-50 hover:text-primary',
+                      ].join(' ')}
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      {item.name}
+                      <Icon className="h-4 w-4 opacity-80" />
+                      <span>{item.name}</span>
                     </Link>
+                      )
+                    })()}
                   </motion.div>
                 ))}
                 <motion.div
@@ -140,7 +179,7 @@ export default function Header() {
                 >
                   <Link
                     href="/contact"
-                    className="btn btn-primary mt-2 text-center"
+                    className="mt-2 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-dark"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Contact Us

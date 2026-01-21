@@ -1,12 +1,10 @@
+@import 'aos/dist/aos.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Bootstrap CSS */
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
-/* AOS Animation Library */
-@import 'aos/dist/aos.css';
+/* Bootstrap imported in layout.tsx; AOS above */
 
 :root {
   --primary: #2D5016;
@@ -23,11 +21,10 @@
 @layer base {
   body {
     @apply text-gray-900 bg-white antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-poppins), 'Poppins', system-ui, sans-serif;
     @apply font-bold;
   }
 }

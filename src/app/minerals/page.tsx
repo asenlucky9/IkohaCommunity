@@ -6,7 +6,6 @@ import Card from '@/components/ui/Card'
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 import AOS from 'aos'
-import 'aos/dist/aos.css'
 
 export default function MineralsPage() {
   useEffect(() => {
@@ -125,7 +124,7 @@ export default function MineralsPage() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 md:py-16">
         {/* Quick Stats */}
         <motion.section
           className="mb-20"
@@ -136,25 +135,25 @@ export default function MineralsPage() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-primary hover:scale-105">
-              <div className="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Leaf className="w-8 h-8 text-primary" />
+              <div className="bg-primary/10 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Leaf className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary" />
               </div>
-              <div className="text-4xl font-bold text-primary mb-2">6+</div>
-              <div className="text-gray-600 font-medium">Agricultural Resources</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">6+</div>
+              <div className="text-gray-600 font-medium text-xs sm:text-sm md:text-base">Agricultural Resources</div>
             </Card>
-            <Card className="p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary hover:scale-105">
-              <div className="bg-secondary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Gem className="w-8 h-8 text-secondary-dark" />
+            <Card className="p-5 sm:p-6 md:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-secondary hover:scale-105">
+              <div className="bg-secondary/10 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Gem className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-secondary-dark" />
               </div>
-              <div className="text-4xl font-bold text-secondary mb-2">1+</div>
-              <div className="text-gray-600 font-medium">Solid Mineral Resources</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-1 sm:mb-2">1+</div>
+              <div className="text-gray-600 font-medium text-xs sm:text-sm md:text-base">Solid Mineral Resources</div>
             </Card>
-            <Card className="p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-accent hover:scale-105">
-              <div className="bg-accent bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Waves className="w-8 h-8 text-accent" />
+            <Card className="p-5 sm:p-6 md:p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border-t-4 border-accent hover:scale-105 sm:col-span-2 md:col-span-1">
+              <div className="bg-accent/10 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Waves className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-accent" />
               </div>
-              <div className="text-4xl font-bold text-accent mb-2">1+</div>
-              <div className="text-gray-600 font-medium">Water Resources</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-1 sm:mb-2">1+</div>
+              <div className="text-gray-600 font-medium text-xs sm:text-sm md:text-base">Water Resources</div>
             </Card>
           </div>
         </motion.section>
@@ -194,7 +193,7 @@ export default function MineralsPage() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 border-t-4 border-primary group">
-                    <div className="h-48 bg-gradient-to-br from-primary via-primary-light to-primary-dark flex items-center justify-center relative overflow-hidden">
+                    <div className="h-36 sm:h-40 md:h-48 bg-gradient-to-br from-primary via-primary-light to-primary-dark flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                       <Icon className="w-20 h-20 text-white relative z-10 group-hover:scale-110 transition-transform" />
                       <div className="absolute top-4 right-4">
@@ -233,19 +232,19 @@ export default function MineralsPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-center mb-12">
-            <div className="inline-block bg-secondary bg-opacity-10 p-3 rounded-lg mb-4">
-              <Gem className="w-8 h-8 text-secondary-dark" />
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <div className="inline-block bg-secondary/10 p-2.5 sm:p-3 rounded-lg mb-3 sm:mb-4">
+              <Gem className="w-6 h-6 sm:w-8 sm:h-8 text-secondary-dark" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-secondary">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-secondary">
               Solid Mineral Resources
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-1">
               Valuable mineral deposits for construction and industrial use
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
             {solidMinerals.map((mineral, index) => {
               const Icon = mineral.icon
               return (
@@ -260,7 +259,7 @@ export default function MineralsPage() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 border-t-4 border-secondary group">
-                    <div className="h-48 bg-gradient-to-br from-secondary via-secondary-light to-secondary-dark flex items-center justify-center relative overflow-hidden">
+                    <div className="h-36 sm:h-40 md:h-48 bg-gradient-to-br from-secondary via-secondary-light to-secondary-dark flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                       <Icon className="w-20 h-20 text-white relative z-10 group-hover:scale-110 transition-transform" />
                       <div className="absolute top-4 right-4">
@@ -299,19 +298,19 @@ export default function MineralsPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-center mb-12">
-            <div className="inline-block bg-accent bg-opacity-10 p-3 rounded-lg mb-4">
-              <Waves className="w-8 h-8 text-accent" />
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <div className="inline-block bg-accent/10 p-2.5 sm:p-3 rounded-lg mb-3 sm:mb-4">
+              <Waves className="w-6 h-6 sm:w-8 sm:h-8 text-accent" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-accent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-accent">
               Water Resources
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-1">
               Natural water sources supporting community activities and livelihoods
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
             {waterResources.map((water, index) => {
               const Icon = water.icon
               return (
@@ -326,7 +325,7 @@ export default function MineralsPage() {
                   whileHover={{ scale: 1.05 }}
                 >
                   <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 border-t-4 border-accent group">
-                    <div className="h-48 bg-gradient-to-br from-accent via-accent-light to-accent-dark flex items-center justify-center relative overflow-hidden">
+                    <div className="h-36 sm:h-40 md:h-48 bg-gradient-to-br from-accent via-accent-light to-accent-dark flex items-center justify-center relative overflow-hidden">
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                       <Icon className="w-20 h-20 text-white relative z-10 group-hover:scale-110 transition-transform" />
                       <div className="absolute top-4 right-4">
@@ -365,19 +364,19 @@ export default function MineralsPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <Card className="p-8 md:p-10 shadow-xl bg-gradient-to-br from-primary/5 via-white to-secondary/5 border-t-4 border-primary">
-            <div className="text-center mb-8">
-              <div className="inline-block bg-primary bg-opacity-10 p-3 rounded-lg mb-4">
-                <TrendingUp className="w-8 h-8 text-primary" />
+          <Card className="p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl bg-gradient-to-br from-primary/5 via-white to-secondary/5 border-t-4 border-primary">
+            <div className="text-center mb-6 sm:mb-8">
+              <div className="inline-block bg-primary/10 p-2.5 sm:p-3 rounded-lg mb-3 sm:mb-4">
+                <TrendingUp className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900">
                 Investment Opportunities
               </h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-1">
                 Explore partnership and investment opportunities in Ikoha's natural resources
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
               <div className="bg-white rounded-xl p-6 shadow-md text-center">
                 <div className="text-3xl font-bold text-primary mb-2">6+</div>
                 <div className="text-gray-600">Agricultural Products</div>
@@ -405,18 +404,18 @@ export default function MineralsPage() {
 
         {/* Call to Action */}
         <motion.section
-          className="bg-gradient-to-r from-primary-dark to-primary text-white rounded-2xl p-8 md:p-12 shadow-2xl"
+          className="bg-gradient-to-r from-primary-dark to-primary text-white rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-12 shadow-2xl"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Interested in Our Resources?</h2>
-            <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Interested in Our Resources?</h2>
+            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/90 max-w-2xl mx-auto px-1">
               Contact us to learn more about investment opportunities, partnerships, and how you can contribute to Ikoha's development.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href="/contact"
                 className="bg-secondary hover:bg-secondary-dark text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2 text-lg"

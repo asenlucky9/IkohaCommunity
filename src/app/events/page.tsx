@@ -24,27 +24,27 @@ export default function EventsPage() {
   ]
 
   return (
-    <div className="min-h-screen py-12 bg-gray-50">
+    <div className="min-h-screen py-8 sm:py-10 md:py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-primary">
             Events & Festivals
           </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto px-1">
             Join us in celebrating our culture, traditions, and community spirit
           </p>
         </div>
 
         {/* Annual Festival - Featured */}
-        <section className="mb-16">
-          <div className="flex items-center mb-8">
-            <Calendar className="w-8 h-8 text-secondary mr-3" />
-            <h2 className="text-3xl font-bold text-secondary">Ikoha Annual Festival</h2>
+        <section className="mb-10 sm:mb-12 md:mb-16">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 mb-5 sm:mb-8">
+            <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-secondary sm:mr-3 flex-shrink-0" />
+            <h2 className="text-2xl sm:text-3xl font-bold text-secondary">Ikoha Annual Festival</h2>
           </div>
 
-          <Card className="p-8 border-2 border-secondary bg-gradient-to-br from-secondary-light to-white">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <Card className="p-5 sm:p-6 md:p-8 border-2 border-secondary bg-gradient-to-br from-secondary-light to-white">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
               {/* Festival Details */}
               <div>
                 <div className="flex items-center mb-6">

@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { Mail, MapPin, PhoneCall } from 'lucide-react'
+import PageHero from '@/components/ui/PageHero'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,15 +20,34 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen py-12 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold mb-8 text-center">Get in Touch</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="min-h-screen bg-gray-50">
+      <PageHero
+        title="Contact"
+        description="Reach out to Ikoha Community Development. We’ll respond as soon as possible."
+        icon={<Mail className="h-7 w-7" />}
+        meta={
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <span className="inline-flex items-center gap-2">
+              <MapPin className="h-4 w-4" />
+              Ovia South-West, Edo State
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <PhoneCall className="h-4 w-4" />
+              Phone (coming soon)
+            </span>
+          </div>
+        }
+      />
+
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10 md:py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
           {/* Contact Form */}
-          <div className="card p-8">
-            <h2 className="text-2xl font-semibold mb-6">Send us a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="card p-5 sm:p-6 md:p-8">
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">Send us a Message</h2>
+            <p className="mt-2 text-gray-600">
+              Use this form for inquiries, partnerships, or community updates.
+            </p>
+            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Name
@@ -98,17 +119,33 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-6">
-            <div className="card p-8">
-              <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-semibold mb-2">Location</h3>
-                  <p className="text-gray-600">
-                    Ovia South-West<br />
-                    Edo State<br />
-                    South South Nigeria
-                  </p>
+          <div className="space-y-4 sm:space-y-6">
+            <div className="card p-5 sm:p-6 md:p-8">
+              <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">Contact Information</h2>
+              <div className="mt-6 space-y-4 text-gray-700">
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-0.5 h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Location</p>
+                    <p className="text-gray-600">
+                      Ovia South-West, Edo State<br />
+                      South South Nigeria
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Mail className="mt-0.5 h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Email</p>
+                    <p className="text-gray-600">Coming soon</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <PhoneCall className="mt-0.5 h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-gray-900">Phone</p>
+                    <p className="text-gray-600">Coming soon</p>
+                  </div>
                 </div>
               </div>
             </div>

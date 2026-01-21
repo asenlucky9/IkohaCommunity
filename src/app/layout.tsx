@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import '../styles/globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Script from 'next/script'
 
 const inter = Inter({ 
@@ -32,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      <body className="font-sans">
+      <body className={`${inter.className} font-sans antialiased`}>
         <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" strategy="afterInteractive" />
         <div className="min-h-screen flex flex-col">
           <Header />
