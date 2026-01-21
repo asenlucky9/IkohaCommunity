@@ -8,8 +8,4 @@
 [build.environment]
   NODE_VERSION = "18"
 
-# Redirects for client-side routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# @netlify/plugin-nextjs handles routing; no SPA-style redirect needed

@@ -88,6 +88,7 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Ikoha Community Administration Section */}
         <motion.section
+          id="location"
           className="mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -136,10 +137,32 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center mt-8 border-2 border-dashed border-gray-300">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                <p className="text-gray-500 font-medium">Interactive Map Coming Soon</p>
+            <div className="mt-8 overflow-hidden rounded-xl border border-gray-200 shadow-md">
+              <div className="relative w-full h-80 sm:h-96">
+                <iframe
+                  src="https://www.google.com/maps?q=6.636944,5.203889&z=15&output=embed"
+                  title="Ikoha, Ovia South-West, Edo, Nigeria – Google Map"
+                  className="absolute inset-0 w-full h-full"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+              <div className="px-4 py-3 bg-gray-50 border-t border-gray-200 flex flex-wrap items-center justify-between gap-2">
+                <p className="text-sm text-gray-600">
+                  <span className="font-semibold text-gray-900">Ikoha</span>
+                  {' · '}
+                  Ovia South-West, Edo, Nigeria
+                </p>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=6.636944,5.203889"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
+                >
+                  <MapPin className="w-4 h-4" />
+                  Open in Google Maps
+                </a>
               </div>
             </div>
           </Card>

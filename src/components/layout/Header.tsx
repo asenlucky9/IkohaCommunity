@@ -46,9 +46,9 @@ export default function Header() {
       className={`bg-white shadow-md sticky top-0 z-50 transition-all duration-300 ${
         scrolled ? 'shadow-lg' : ''
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      initial={{ y: -16, opacity: 0.95 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24 lg:h-28">
@@ -94,7 +94,7 @@ export default function Header() {
                 <Link
                   href={item.href}
                   className={[
-                    'group inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-colors whitespace-nowrap',
+                    'group inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all duration-200 ease-out whitespace-nowrap',
                     active
                       ? 'bg-primary/10 text-primary'
                       : 'text-gray-700 hover:bg-gray-50 hover:text-primary',
@@ -115,7 +115,7 @@ export default function Header() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-primary-dark whitespace-nowrap"
+                className="inline-flex items-center justify-center rounded-lg bg-primary px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition-all duration-200 ease-out hover:bg-primary-dark whitespace-nowrap"
               >
                 Contact
               </Link>
@@ -124,10 +124,10 @@ export default function Header() {
 
           {/* Mobile / tablet menu button (when desktop nav is hidden) */}
           <motion.button
-            className="lg:hidden p-2 rounded-md text-gray-700 hover:text-primary"
+            className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-primary transition-colors duration-200 ease-out"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.96 }}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
@@ -137,11 +137,11 @@ export default function Header() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="lg:hidden py-4 border-t"
+              className="lg:hidden py-4 border-t border-gray-100"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
             >
               <div className="flex flex-col space-y-3">
                 {navigation.map((item, index) => (
@@ -158,7 +158,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       className={[
-                        'flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-colors',
+                        'flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-all duration-200 ease-out',
                         active
                           ? 'bg-primary/10 text-primary'
                           : 'text-gray-700 hover:bg-gray-50 hover:text-primary',
@@ -179,7 +179,7 @@ export default function Header() {
                 >
                   <Link
                     href="/contact"
-                    className="mt-2 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-dark"
+                    className="mt-2 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-200 ease-out hover:bg-primary-dark"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Contact Us

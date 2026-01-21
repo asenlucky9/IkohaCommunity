@@ -1,14 +1,14 @@
+import PageHero from '@/components/ui/PageHero'
+import { Newspaper } from 'lucide-react'
+
 export default function NewsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="border-b bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10 sm:px-6 lg:px-8">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">News</h1>
-          <p className="mt-2 sm:mt-3 max-w-3xl text-base sm:text-lg text-gray-600">
-            Updates from Ikoha Community—announcements, development progress, and community highlights.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title="News"
+        description="Updates from Ikoha Community—announcements, development progress, and community highlights."
+        icon={<Newspaper className="h-7 w-7" />}
+      />
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10 md:py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">

@@ -1,16 +1,16 @@
+import PageHero from '@/components/ui/PageHero'
+import { Construction } from 'lucide-react'
+
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="border-b bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-gray-900">Community Development Projects</h1>
-          <p className="mt-3 max-w-3xl text-lg text-gray-600">
-            Track ongoing and completed projects—transparently showing progress, impact, and next steps.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        title="Community Development Projects"
+        description="Track ongoing and completed projects—transparently showing progress, impact, and next steps."
+        icon={<Construction className="h-7 w-7" />}
+      />
 
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10 md:py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="card p-6">
             <h3 className="text-xl font-semibold text-gray-900">Project Dashboard</h3>

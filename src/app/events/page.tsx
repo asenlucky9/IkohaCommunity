@@ -150,14 +150,20 @@ export default function EventsPage() {
         {/* Call to Action */}
         <section className="bg-primary text-white rounded-lg p-8 text-center">
           <h2 className="text-2xl font-bold mb-4">Join Us for the Next Celebration</h2>
-          <p className="text-lg mb-6 text-gray-200">
+          <p className="text-lg mb-6 text-white/90">
             Experience the rich culture and traditions of Ikoha Community
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-secondary bg-white text-primary hover:bg-gray-100">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center font-semibold rounded-lg px-6 py-3 bg-white text-primary hover:bg-gray-100 transition-colors"
+            >
               Contact Us
             </Link>
-            <Link href="/news" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
+            <Link
+              href="/news"
+              className="inline-flex items-center justify-center font-semibold rounded-lg px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-primary transition-colors"
+            >
               View News
             </Link>
           </div>

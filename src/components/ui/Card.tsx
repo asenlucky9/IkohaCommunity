@@ -10,7 +10,7 @@ export default function Card({ children, className, hover = true }: CardProps) {
   return (
     <div
       className={cn(
-        'bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-200',
+        'bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-out',
         hover && 'hover:shadow-lg',
         className
       )}

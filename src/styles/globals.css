@@ -6,6 +6,11 @@
 
 /* Bootstrap imported in layout.tsx; AOS above */
 
+/* Color system
+   Primary (green): CTAs, nav active, footer, emphasis. Use primary/primary-light/primary-dark.
+   Secondary (gold): accents, tags, events/festival, highlight buttons.
+   Accent (blue): government/official sections. Use sparingly.
+   Neutrals: gray-50 (page bg), gray-100–900, white, black for text, borders, backgrounds. */
 :root {
   --primary: #2D5016;
   --primary-light: #4A7C2A;
@@ -19,6 +24,16 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     @apply text-gray-900 bg-white antialiased;
   }
@@ -27,23 +42,38 @@
     font-family: var(--font-poppins), 'Poppins', system-ui, sans-serif;
     @apply font-bold;
   }
+
+  /* Smoother focus for keyboard users; cleaner tap on touch devices */
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2;
+  }
+
+  /* Smooth focus on form controls */
+  input, textarea, select {
+    @apply transition-[box-shadow,border-color] duration-200 ease-out;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200;
+    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200 ease-out;
   }
 
   .btn-secondary {
-    @apply bg-secondary hover:bg-secondary-dark text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200;
+    @apply bg-secondary hover:bg-secondary-dark text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200 ease-out;
   }
 
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200 ease-out;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden transition-shadow duration-200 hover:shadow-lg;
+    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-out hover:shadow-lg;
   }
 }
 

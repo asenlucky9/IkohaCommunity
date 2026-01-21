@@ -21,36 +21,32 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-b from-primary-dark to-primary text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand */}
-          <div className="col-span-1 md:col-span-1">
-            <div className="mb-5 inline-flex items-center justify-center rounded-2xl bg-white/15 p-4 shadow-lg ring-1 ring-white/25">
+          <div className="col-span-2 sm:col-span-1 flex flex-col sm:block">
+            <div className="mb-3 inline-flex items-center justify-center rounded-xl bg-white/15 p-2.5 ring-1 ring-white/25 w-14 h-14 sm:w-16 sm:h-16">
               <img
                 src="/images/logo/logoikoha.png"
                 alt="Ikoha Community Logo"
-                className="h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 object-contain"
+                className="h-9 w-9 sm:h-10 sm:w-10 object-contain"
               />
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">Ikoha Community</h3>
-            <p className="text-xs uppercase tracking-widest text-secondary font-medium mb-3">Agricultural & Mineral Resources</p>
-            <p className="text-sm text-gray-400">
-              Ovia South-West, Edo State<br />
-              South South Nigeria
+            <h3 className="text-lg font-bold text-white mb-0.5 tracking-tight">Ikoha Community</h3>
+            <p className="text-[10px] uppercase tracking-widest text-secondary font-medium mb-1.5">Agricultural & Mineral Resources</p>
+            <p className="text-xs text-white/80">
+              Ovia South-West, Edo State, Nigeria
             </p>
           </div>
 
           {/* About */}
           <div>
-            <h4 className="text-white font-semibold mb-4">About</h4>
-            <ul className="space-y-2">
+            <h4 className="text-white font-semibold text-sm mb-2">About</h4>
+            <ul className="space-y-1">
               {footerLinks.about.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-secondary transition-colors text-sm"
-                  >
+                  <Link href={link.href} className="text-white/80 hover:text-secondary transition-colors duration-200 ease-out text-xs focus-visible:ring-white/70 focus-visible:ring-offset-2">
                     {link.name}
                   </Link>
                 </li>
@@ -60,14 +56,11 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Resources</h4>
-            <ul className="space-y-2">
+            <h4 className="text-white font-semibold text-sm mb-2">Resources</h4>
+            <ul className="space-y-1">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-secondary transition-colors text-sm"
-                  >
+                  <Link href={link.href} className="text-white/80 hover:text-secondary transition-colors duration-200 ease-out text-xs focus-visible:ring-white/70 focus-visible:ring-offset-2">
                     {link.name}
                   </Link>
                 </li>
@@ -77,14 +70,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2">
+            <h4 className="text-white font-semibold text-sm mb-2">Contact</h4>
+            <ul className="space-y-1">
               {footerLinks.contact.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-secondary transition-colors text-sm"
-                  >
+                  <Link href={link.href} className="text-white/80 hover:text-secondary transition-colors duration-200 ease-out text-xs focus-visible:ring-white/70 focus-visible:ring-offset-2">
                     {link.name}
                   </Link>
                 </li>
@@ -94,13 +84,10 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-          <p>
-            © {currentYear} Ikoha Community Development. All rights reserved.
-          </p>
-          <p className="mt-2 text-gray-500">
-            Ovia South-West, Edo State, Nigeria
-          </p>
+        <div className="border-t border-white/20 mt-5 pt-5 sm:mt-6 sm:pt-6 text-center">
+          <p className="text-white/90 text-xs">© {currentYear} Ikoha Community Development. All rights reserved.</p>
+          <p className="mt-1 text-white/70 text-xs">Ovia South-West, Edo State, Nigeria</p>
+          <p className="mt-1 text-white/60 text-xs">Developed by ASENOGUAN NIG LTD</p>
         </div>
       </div>
     </footer>

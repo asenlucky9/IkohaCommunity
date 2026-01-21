@@ -60,7 +60,7 @@ See [WIREFRAMES.md](./WIREFRAMES.md) for page layouts and UI designs.
 
 3. **Set up environment variables**
    ```bash
-   cp .env.example .env.local
+   cp env.example.txt .env.local
    # Edit .env.local with your configuration
    ```
 
@@ -91,10 +91,8 @@ See [WIREFRAMES.md](./WIREFRAMES.md) for page layouts and UI designs.
 ### Netlify Deployment
 
 1. **Connect your repository** to Netlify
-2. **Configure build settings**:
-   - Build command: `npm run build`
-   - Publish directory: `.next`
-3. **Set environment variables** in Netlify dashboard
+2. **Build settings** are in `netlify.toml` (build command, `@netlify/plugin-nextjs`).
+3. **Set environment variables** in the Netlify dashboard.
 4. **Deploy!**
 
 The `netlify.toml` file is already configured for Next.js.
