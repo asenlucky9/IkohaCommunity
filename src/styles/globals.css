@@ -59,6 +59,38 @@
   }
 }
 
+/* Construction banner: soft pulse on headline */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.82; }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 2.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-soft { animation: none; }
+}
+
+/* Construction banner: light fade-in on page load */
+@keyframes fade-in-banner {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in-banner {
+  animation: fade-in-banner 0.5s ease-out forwards;
+}
+
+/* Slow loading spinner (2s per rotation) */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow { animation: none; }
+}
+
 @layer components {
   .btn-primary {
     @apply bg-primary hover:bg-primary-dark text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200 ease-out;
