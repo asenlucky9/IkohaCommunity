@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import '../styles/globals.css'
 import Header from '@/components/layout/Header'
@@ -23,6 +23,13 @@ export const metadata: Metadata = {
   title: 'Ikoha Community Development',
   description: 'Official platform for Ikoha Community, Ovia South-West, Edo State, Nigeria. Showcasing mineral resources, community development projects, and local engagement.',
   keywords: ['Ikoha', 'Community', 'Nigeria', 'Edo State', 'Mineral Resources', 'Ovia South-West'],
+}
+
+// Ensures correct scaling/layout on mobile devices
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 }
 
 // Default playlist - add more tracks here or load from API

@@ -85,12 +85,14 @@ export default function Header() {
       <div className="relative" onMouseLeave={() => setOpenDropdown(null)}>
         <button
           onMouseEnter={() => setOpenDropdown(label)}
+          onClick={() => setOpenDropdown(isOpen ? null : label)}
           className={[
             'group inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-all duration-200 ease-out whitespace-nowrap',
             hasActiveItem || isOpen
               ? 'bg-primary/10 text-primary'
               : 'text-gray-700 hover:bg-gray-50 hover:text-primary',
           ].join(' ')}
+          aria-haspopup="menu"
         >
           <Icon className="h-4 w-4 shrink-0 opacity-80 group-hover:opacity-100 transition-opacity" />
           <span>{label}</span>
@@ -174,8 +176,8 @@ export default function Header() {
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* Desktop/Tablet Navigation */}
+          <div className="hidden md:flex items-center gap-1">
             {/* Primary Navigation */}
             {primaryNav.map((item) => (
               <NavLink
@@ -208,7 +210,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="lg:hidden p-2 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 ease-out"
+            className="md:hidden p-2 rounded-lg text-gray-700 hover:text-primary hover:bg-gray-50 transition-colors duration-200 ease-out"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -222,7 +224,7 @@ export default function Header() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
-              className="lg:hidden border-t border-gray-100 bg-gray-50/50"
+              className="md:hidden border-t border-gray-100 bg-gray-50/50"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
