@@ -4,8 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Bootstrap imported in layout.tsx; AOS above */
-
 /* Color system
    Primary (green): CTAs, nav active, footer, emphasis. Use primary/primary-light/primary-dark.
    Secondary (gold): accents, tags, events/festival, highlight buttons.
@@ -109,35 +107,3 @@
   }
 }
 
-/* Bootstrap Custom Overrides */
-.btn-primary {
-  background-color: var(--primary) !important;
-  border-color: var(--primary) !important;
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-dark) !important;
-  border-color: var(--primary-dark) !important;
-}
-
-.btn-outline-primary {
-  border-color: var(--primary) !important;
-  color: var(--primary) !important;
-}
-
-.btn-outline-primary:hover {
-  background-color: var(--primary) !important;
-  border-color: var(--primary) !important;
-  color: white !important;
-}
-
-.btn-warning {
-  background-color: var(--secondary) !important;
-  border-color: var(--secondary) !important;
-  color: white !important;
-}
-
-.btn-warning:hover {
-  background-color: var(--secondary-dark) !important;
-  border-color: var(--secondary-dark) !important;
-}

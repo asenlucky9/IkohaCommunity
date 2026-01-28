@@ -7,13 +7,15 @@ export default function Footer() {
   const footerLinks = {
     about: [
       { name: 'About Us', href: '/about' },
+      { name: 'Community Heroes', href: '/heroes' },
       { name: 'Projects', href: '/projects' },
       { name: 'Business Directory', href: '/businesses' },
     ],
     resources: [
+      { name: 'Community Forum', href: '/forum' },
       { name: 'Mineral Resources', href: '/minerals' },
-      { name: 'News', href: '/news' },
-      { name: 'Events & Festivals', href: '/events' },
+      { name: 'News & Events', href: '/news' },
+      { name: 'Photo Gallery', href: '/gallery' },
     ],
     contact: [
       { name: 'Contact Us', href: '/contact' },

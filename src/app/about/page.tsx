@@ -3,9 +3,8 @@
 import { MapPin, Users, Home, Crown, UserCircle, Shield, Building2, Award, Globe, Calendar } from 'lucide-react'
 import Card from '@/components/ui/Card'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useEffect } from 'react'
 import AOS from 'aos'
 
 export default function AboutPage() {
