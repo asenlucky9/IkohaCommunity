@@ -1,12 +1,10 @@
 import { cn } from '@/lib/utils'
 
-interface CardProps {
-  children: React.ReactNode
-  className?: string
+type CardProps = React.HTMLAttributes<HTMLDivElement> & {
   hover?: boolean
 }
 
-export default function Card({ children, className, hover = true }: CardProps) {
+export default function Card({ children, className, hover = true, ...props }: CardProps) {
   return (
     <div
       className={cn(
@@ -14,6 +12,7 @@ export default function Card({ children, className, hover = true }: CardProps) {
         hover && 'hover:shadow-lg',
         className
       )}
+      {...props}
     >
       {children}
     </div>
