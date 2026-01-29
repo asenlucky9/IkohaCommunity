@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { MapPin, TrendingUp, Building2, Users, Leaf, Waves, ArrowRight, Calendar, Phone, Star, Quote, Sparkles, Heart, Trophy, Zap, Camera, PartyPopper, Megaphone, Newspaper, MessageSquare, Briefcase, FolderOpen } from 'lucide-react'
+import { MapPin, TrendingUp, Building2, Users, Leaf, Waves, ArrowRight, Calendar, Phone, Star, Quote, Sparkles, Heart, Trophy, Zap, Camera, PartyPopper, Megaphone, Newspaper, MessageSquare, Briefcase, FolderOpen, Mail, MessageCircle, Send } from 'lucide-react'
 import Card from '@/components/ui/Card'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
@@ -206,6 +206,13 @@ export default function Home() {
     return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
   }
 
+  // Community contact (same as banner; WhatsApp number from env)
+  const communityEmail = 'asenlucky9@gmail.com'
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''
+  const whatsappHref = whatsappNumber.trim()
+    ? `https://wa.me/${String(whatsappNumber).replace(/\D/g, '')}?text=${encodeURIComponent('Hello, I would like to reach Ikoha Community Development.')}`
+    : null
+
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -352,28 +359,28 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Enhanced Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        {/* Scroll to explore - clickable, smooth scrolls to content */}
+        <motion.a
+          href="#explore"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 cursor-pointer text-white/70 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-lg px-3 py-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, delay: 1.5 }}
+          aria-label="Scroll down to explore content"
         >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-white/70 text-sm font-medium">Scroll to explore</span>
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <motion.div 
-                className="w-1 h-3 bg-white/50 rounded-full mt-2"
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              />
-            </div>
+          <span className="text-sm font-medium">Scroll to explore</span>
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <motion.div 
+              className="w-1 h-3 bg-white/50 rounded-full mt-2"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
           </div>
-        </motion.div>
+        </motion.a>
       </section>
 
       {/* Quick Stats - Enhanced with Animations */}
-      <section className="py-16 bg-white -mt-1 relative z-20">
+      <section id="explore" className="py-16 bg-white -mt-1 relative z-20 scroll-mt-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
@@ -413,6 +420,49 @@ export default function Home() {
                 </motion.div>
               )
             })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Reach the community - quick contact strip */}
+      <section className="py-8 bg-primary/5 border-y border-primary/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-sm font-semibold text-gray-700">Reach the community:</span>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {whatsappHref && (
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#25D366] hover:bg-[#1ebe5d] text-white font-medium shadow-md hover:shadow-lg transition-all"
+                  aria-label="Chat on WhatsApp"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  WhatsApp
+                </a>
+              )}
+              <a
+                href={`mailto:${communityEmail}`}
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gray-800 hover:bg-gray-900 text-white font-medium shadow-md hover:shadow-lg transition-all"
+                aria-label="Email community"
+              >
+                <Mail className="w-5 h-5" />
+                Email us
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-white font-medium shadow-md hover:shadow-lg transition-all"
+              >
+                <Send className="w-5 h-5" />
+                Contact form
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -558,6 +608,45 @@ export default function Home() {
               )
             })}
           </div>
+
+          {/* Have news or feedback? - community callout */}
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <Card className="p-6 bg-gradient-to-r from-primary/10 to-secondary/10 border-2 border-primary/20">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0">
+                    <Send className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900">Have community news or feedback?</h3>
+                    <p className="text-gray-600 mt-1">
+                      Send us announcements, report an issue, or share a suggestion. We want to hear from you.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <a
+                    href={`mailto:${communityEmail}?subject=Community news or feedback`}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary hover:bg-primary-dark text-white font-medium transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                    Email us
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium transition-colors"
+                  >
+                    Contact form
+                  </Link>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </section>
 
@@ -936,7 +1025,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="w-full max-w-3xl">
+            <div className="w-full max-w-3xl space-y-8">
               <Card className="p-5 shadow-lg">
                 <div className="flex items-center mb-4">
                   <MapPin className="text-primary mr-3 w-8 h-8 flex-shrink-0" />
@@ -969,6 +1058,59 @@ export default function Home() {
                   </div>
                 </div>
               </Card>
+
+              {/* Key contacts - useful for residents */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-5 shadow-lg">
+                  <div className="flex items-center mb-4">
+                    <Phone className="text-secondary mr-3 w-8 h-8 flex-shrink-0" />
+                    <h3 className="text-2xl font-bold text-gray-900">Key contacts</h3>
+                  </div>
+                  <p className="text-gray-600 mb-4 text-sm">
+                    For official inquiries, community matters, or to share news, use the options below.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a
+                      href={`mailto:${communityEmail}`}
+                      className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-primary/30 transition-colors"
+                    >
+                      <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-gray-900">Email</p>
+                        <p className="text-sm text-gray-600 truncate">{communityEmail}</p>
+                      </div>
+                    </a>
+                    <Link
+                      href="/contact"
+                      className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-gray-50 hover:border-primary/30 transition-colors"
+                    >
+                      <Send className="w-5 h-5 text-primary flex-shrink-0" />
+                      <div>
+                        <p className="font-semibold text-gray-900">Contact form</p>
+                        <p className="text-sm text-gray-600">Send a message online</p>
+                      </div>
+                    </Link>
+                    {whatsappHref && (
+                      <a
+                        href={whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 p-3 rounded-lg border border-gray-200 hover:bg-[#25D366]/10 hover:border-[#25D366]/30 transition-colors sm:col-span-2"
+                      >
+                        <MessageCircle className="w-5 h-5 text-[#25D366] flex-shrink-0" />
+                        <div>
+                          <p className="font-semibold text-gray-900">WhatsApp</p>
+                          <p className="text-sm text-gray-600">Chat with the community</p>
+                        </div>
+                      </a>
+                    )}
+                  </div>
+                </Card>
+              </motion.div>
             </div>
           </motion.div>
         </div>

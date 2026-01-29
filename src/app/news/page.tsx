@@ -323,6 +323,7 @@ export default function NewsPage() {
                       : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
                   }`}
                   aria-label="Switch to calendar view"
+                  title="Calendar view"
                 >
                   Calendar View
                 </button>
@@ -334,6 +335,7 @@ export default function NewsPage() {
                       : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
                   }`}
                   aria-label="Switch to list view"
+                  title="List view"
                 >
                   List View
                 </button>
@@ -475,6 +477,8 @@ export default function NewsPage() {
                       <button
                         onClick={() => handleRegister(event)}
                         className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold text-sm"
+                        aria-label={event.isRegistered ? 'Already registered' : `Register for ${event.title}`}
+                        title={event.isRegistered ? 'Already registered' : `Register for ${event.title}`}
                       >
                         {event.isRegistered ? (
                           <>
@@ -617,6 +621,8 @@ export default function NewsPage() {
                           : 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'
                         }
                       `}
+                      aria-label="Previous page"
+                      title="Previous page"
                     >
                       <ChevronLeft className="w-4 h-4" />
                       Previous
@@ -642,6 +648,8 @@ export default function NewsPage() {
                           : 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'
                         }
                       `}
+                      aria-label="Next page"
+                      title="Next page"
                     >
                       Next
                       <ChevronRight className="w-4 h-4" />
@@ -669,6 +677,8 @@ export default function NewsPage() {
                       setPage(1)
                     }}
                     className="text-primary hover:text-primary-dark font-semibold"
+                    aria-label="Clear search and category filters"
+                    title="Clear filters"
                   >
                     Clear filters
                   </button>
@@ -695,6 +705,8 @@ export default function NewsPage() {
               <button
                 onClick={() => setSelectedCategory('events')}
                 className="inline-flex items-center justify-center font-semibold rounded-lg px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-primary transition-colors"
+                aria-label="View events"
+                title="View events"
               >
                 View Events
               </button>
@@ -718,6 +730,8 @@ export default function NewsPage() {
                 <button
                   onClick={() => setShowRegistrationModal(false)}
                   className="text-gray-400 hover:text-gray-600"
+                  aria-label="Close registration modal"
+                  title="Close registration"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -772,12 +786,16 @@ export default function NewsPage() {
                     type="button"
                     onClick={() => setShowRegistrationModal(false)}
                     className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-semibold"
+                    aria-label="Cancel registration"
+                    title="Cancel"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold"
+                    aria-label="Submit registration"
+                    title="Register"
                   >
                     Register
                   </button>
@@ -803,6 +821,8 @@ export default function NewsPage() {
                 <button
                   onClick={() => setShowReminderModal(false)}
                   className="text-gray-400 hover:text-gray-600"
+                  aria-label="Close reminder modal"
+                  title="Close reminder"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -844,12 +864,16 @@ export default function NewsPage() {
                     type="button"
                     onClick={() => setShowReminderModal(false)}
                     className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-semibold"
+                    aria-label="Cancel reminder"
+                    title="Cancel"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold"
+                    aria-label="Set reminder"
+                    title="Set Reminder"
                   >
                     Set Reminder
                   </button>

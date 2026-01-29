@@ -349,6 +349,8 @@ export default function EventsPage() {
                     <button
                       onClick={() => handleRegister(event)}
                       className="flex-1 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold text-sm"
+                      aria-label={event.isRegistered ? 'Already registered' : `Register for ${event.title}`}
+                      title={event.isRegistered ? 'Already registered' : `Register for ${event.title}`}
                     >
                       {event.isRegistered ? (
                         <>
@@ -428,6 +430,8 @@ export default function EventsPage() {
                   <button
                     onClick={() => setShowRegistrationModal(false)}
                     className="text-gray-400 hover:text-gray-600"
+                    aria-label="Close registration modal"
+                    title="Close registration"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -513,6 +517,8 @@ export default function EventsPage() {
                   <button
                     onClick={() => setShowReminderModal(false)}
                     className="text-gray-400 hover:text-gray-600"
+                    aria-label="Close reminder modal"
+                    title="Close reminder"
                   >
                     <X className="w-5 h-5" />
                   </button>

@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import MusicPlayer, { Track } from '@/components/ui/MusicPlayer'
 import WhatsAppChat from '@/components/ui/WhatsAppChat'
+import AssistantChat from '@/components/ui/AssistantChat'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -96,6 +97,7 @@ export default function RootLayout({
           <Footer />
           <MusicPlayer tracks={defaultPlaylist} />
           <WhatsAppChat />
+          <AssistantChat />
         </div>
       </body>
     </html>

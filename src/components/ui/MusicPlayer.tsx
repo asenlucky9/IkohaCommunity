@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { Music, Play, Pause, Volume2, VolumeX, SkipForward, SkipBack, List } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -43,10 +43,10 @@ export default function MusicPlayer({
 
   const currentTrack = playlist[currentTrackIndex]
 
-  // Initialize with default track if provided
+  // Initialize with default track if provided (run only when defaultTrack changes)
   useEffect(() => {
     if (defaultTrack) {
-      const trackIndex = playlist.findIndex(t => t.id === defaultTrack.id)
+      const trackIndex = playlist.findIndex((t) => t.id === defaultTrack.id)
       if (trackIndex !== -1) {
         setCurrentTrackIndex(trackIndex)
       } else {
@@ -54,6 +54,7 @@ export default function MusicPlayer({
         setCurrentTrackIndex(0)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- init only when defaultTrack changes
   }, [defaultTrack])
 
   // Update audio source when track changes
@@ -65,6 +66,11 @@ export default function MusicPlayer({
       setError(null)
     }
   }, [currentTrack])
+
+  const handleNext = useCallback(() => {
+    setCurrentTrackIndex((idx) => (idx + 1) % playlist.length)
+    setIsPlaying(false)
+  }, [playlist.length])
 
   // Handle audio events
   useEffect(() => {
@@ -112,7 +118,7 @@ export default function MusicPlayer({
       audio.removeEventListener('ended', handleEnded)
       audio.removeEventListener('loadedmetadata', handleLoadedMetadata)
     }
-  }, [volume, isMuted, currentTrack])
+  }, [volume, isMuted, currentTrack, handleNext])
 
   const togglePlay = async () => {
     if (audioRef.current) {
@@ -131,12 +137,6 @@ export default function MusicPlayer({
         setIsPlaying(false)
       }
     }
-  }
-
-  const handleNext = () => {
-    const nextIndex = (currentTrackIndex + 1) % playlist.length
-    setCurrentTrackIndex(nextIndex)
-    setIsPlaying(false)
   }
 
   const handlePrevious = () => {

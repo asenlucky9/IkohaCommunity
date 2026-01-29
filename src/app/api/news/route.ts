@@ -184,6 +184,9 @@ const sampleNews: NewsArticle[] = [
   },
 ]
 
+// Ensure this route is always dynamic (uses request.url for query params)
+export const dynamic = 'force-dynamic'
+
 // GET /api/news - Fetch all published news articles
 export async function GET(request: Request) {
   try {
