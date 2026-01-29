@@ -57,7 +57,7 @@
   }
 }
 
-/* Construction banner: soft pulse on headline */
+/* Top bar: soft pulse (optional) */
 @keyframes pulse-soft {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.82; }
@@ -69,7 +69,7 @@
   .animate-pulse-soft { animation: none; }
 }
 
-/* Construction banner: light fade-in on page load */
+/* Light fade-in for top bar */
 @keyframes fade-in-banner {
   from { opacity: 0; }
   to { opacity: 1; }

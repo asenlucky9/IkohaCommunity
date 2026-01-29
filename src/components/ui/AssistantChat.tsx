@@ -85,7 +85,7 @@ export default function AssistantChat() {
                 <div className="text-center text-gray-500 text-sm py-6 px-2">
                   <Bot className="w-10 h-10 mx-auto mb-2 text-primary/50" />
                   <p>Ask a question or describe an issue.</p>
-                  <p className="mt-1">e.g. &quot;When is the festival?&quot;, &quot;What is 2+2?&quot;, or any question. Add GROQ_API_KEY (free at console.groq.com) for full ChatGPT-like answers.</p>
+                  <p className="mt-1">e.g. &quot;When is the festival?&quot; or &quot;How do I contact the community?&quot;</p>
                 </div>
               )}
               {messages.map((m, i) => (

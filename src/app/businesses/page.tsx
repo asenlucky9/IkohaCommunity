@@ -14,15 +14,15 @@ export default function BusinessesPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <div className="card p-4 sm:p-5 md:p-6">
             <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Directory</h3>
-            <p className="mt-2 text-sm sm:text-base text-gray-600">Coming soon — verified listings with categories and contacts.</p>
+            <p className="mt-2 text-sm sm:text-base text-gray-600">Verified listings with categories and contacts for local businesses.</p>
           </div>
           <div className="card p-4 sm:p-5 md:p-6">
             <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Promote Your Business</h3>
-            <p className="mt-2 text-sm sm:text-base text-gray-600">Coming soon — submit your business for review and publishing.</p>
+            <p className="mt-2 text-sm sm:text-base text-gray-600">Submit your business for review and publishing via the Contact page.</p>
           </div>
           <div className="card p-4 sm:p-5 md:p-6 sm:col-span-2 lg:col-span-1">
             <h3 className="text-lg sm:text-xl font-semibold text-gray-900">Investment & Partnerships</h3>
-            <p className="mt-2 text-sm sm:text-base text-gray-600">Coming soon — opportunities and local value chains.</p>
+            <p className="mt-2 text-sm sm:text-base text-gray-600">Opportunities and local value chains for investors and partners.</p>
           </div>
         </div>
       </div>

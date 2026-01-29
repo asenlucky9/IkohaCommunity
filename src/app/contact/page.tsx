@@ -32,8 +32,8 @@ export default function ContactPage() {
               Ovia South-West, Edo State
             </span>
             <span className="inline-flex items-center gap-2">
-              <PhoneCall className="h-4 w-4" />
-              Phone (coming soon)
+              <Mail className="h-4 w-4" />
+              asenlucky9@gmail.com
             </span>
           </div>
         }
@@ -137,14 +137,14 @@ export default function ContactPage() {
                   <Mail className="mt-0.5 h-5 w-5 text-primary" />
                   <div>
                     <p className="font-semibold text-gray-900">Email</p>
-                    <p className="text-gray-600">Coming soon</p>
+                    <a href="mailto:asenlucky9@gmail.com" className="text-gray-600 hover:text-primary underline underline-offset-1">asenlucky9@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <PhoneCall className="mt-0.5 h-5 w-5 text-primary" />
                   <div>
                     <p className="font-semibold text-gray-900">Phone</p>
-                    <p className="text-gray-600">Coming soon</p>
+                    <p className="text-gray-600">Available via email or Contact form</p>
                   </div>
                 </div>
               </div>

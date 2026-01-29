@@ -15,13 +15,13 @@ export default function ProjectsPage() {
           <div className="card p-6">
             <h3 className="text-xl font-semibold text-gray-900">Project Dashboard</h3>
             <p className="mt-2 text-gray-600">
-              Coming soon — we’ll list projects with status, budget, timeline, and community updates.
+              View projects with status, budget, timeline, and community updates.
             </p>
           </div>
           <div className="card p-6">
             <h3 className="text-xl font-semibold text-gray-900">Submit a Project Idea</h3>
             <p className="mt-2 text-gray-600">
-              Coming soon — suggest community needs and development priorities.
+              Suggest community needs and development priorities via the Contact page.
             </p>
           </div>
         </div>

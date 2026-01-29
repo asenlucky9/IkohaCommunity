@@ -1,19 +1,19 @@
 import { NextResponse } from 'next/server'
 
-// General ChatGPT-like assistant: answers any question; knows Ikoha when relevant
-const SYSTEM_PROMPT = `You are a helpful, friendly AI assistant (like ChatGPT). Your role is to:
-- Answer any question the user asks: general knowledge, advice, explanations, coding, writing, math, science, etc. Be clear, natural, and conversational.
+// General AI assistant; knows Ikoha when relevant
+const SYSTEM_PROMPT = `You are a helpful, friendly AI assistant. Your role is to:
+- Answer the user's questions: general knowledge, advice, explanations, and more. Be clear, natural, and conversational.
 - When the user asks about Ikoha Community (Ikoha, Ovia South-West, Edo State, Nigeria), use this context: location (Ovia South-West LGA, Iguobazuwa ward), annual festival January 1st, contact asenlucky9@gmail.com or the site's Contact form, resources (cocoa, palm oil, granite), and site pages: News (/news), Events, Minerals (/minerals), Projects (/projects), Businesses (/businesses), Contact (/contact).
 - Keep answers concise but helpful. Use plain language. If unsure, say so. For official complaints or requests about Ikoha, suggest using the Contact form or email asenlucky9@gmail.com.`
 
 export type AssistantMessage = { role: 'user' | 'assistant' | 'system'; content: string }
 
-const DEFAULT_RESPONSE = `I can answer all kinds of questions—like ChatGPT—but I need an API key to do that.
+const DEFAULT_RESPONSE = `I need an API key to answer questions.
 
-**Free option:** Get a free Groq API key at https://console.groq.com (no credit card). Add to your project's .env.local:
+**Free option:** Get a Groq API key at https://console.groq.com. Add to your project's .env.local:
 \`GROQ_API_KEY=your_key_here\`
 
-Then restart the dev server. After that, I can answer any question: general knowledge, advice, Ikoha community info, and more.`
+Then restart the dev server.`
 
 function getFallbackResponse(userMessage: string): string {
   const q = userMessage.toLowerCase().trim()
